@@ -5,7 +5,11 @@ import VUserProfile from "@/components/VUserProfile";
 
 describe("UserView", () => {
   const build = () => {
-    const wrapper = shallowMount(UserView);
+    const wrapper = shallowMount(UserView, {
+      data: () => ({
+        user: {}
+      })
+    });
 
     return {
       wrapper,
@@ -31,5 +35,18 @@ describe("UserView", () => {
     // `Wrapper`（今回の場合、VUserSearchFormとVUserProfile）が存在すれば`true`を返す
     expect(userSearchForm().exists()).toBe(true);
     expect(userProfile().exists()).toBe(true);
+  });
+
+  // UserView.vueがVUserProfile.vueに目的のプロパティを渡していることを保証するためのテスト
+  it("user Props が VUserProfile コンポーネントに渡される", () => {
+    const { wrapper, userProfile } = build();
+    wrapper.setData({
+      user: {
+        name: "Daniel"
+      }
+    });
+
+    // `.vm`のVueInstanceにアクセスできる
+    expect(userProfile().vm.user).toBe(wrapper.vm.user);
   });
 });
