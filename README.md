@@ -1,7 +1,7 @@
 # vue-with-tdd
 
 - [Working an application in Vue.js with TDD — An extensive guide for people who have time — part 1](https://medium.com/magnetis-backstage/working-an-application-in-vue-js-with-tdd-an-extensive-guide-for-people-who-have-time-part-1-3be791dafa2b)
-- Working an application in Vue.js with TDD — An extensive guide for people who have time — part 2
+- [Working an application in Vue.js with TDD — An extensive guide for people who have time — part 2](https://medium.com/magnetis-backstage/working-an-application-in-vue-js-with-tdd-an-extensive-guide-for-people-who-have-time-part-2-12ec77b15d96)
 - Working an application in Vue.js with TDD — An extensive guide for people who have time — part 3
 - Working an application in Vue.js with TDD — An extensive guide for people who have time — part 4
 - Working an application in Vue.js with TDD — An extensive guide for people who have time — part 5
