@@ -6,13 +6,45 @@
 - Working an application in Vue.js with TDD — An extensive guide for people who have time — part 4
 - Working an application in Vue.js with TDD — An extensive guide for people who have time — part 5
 
-## コンポーネントのテスト項目
+## コンポーネントのテストに関してのメモ
 
-- コンポーネントが正しくレンダリングされているか
-- Propsが正しく渡されているか
-- 特定のイベントがトリガーした際に、コンポーネントは正常に動作しているか
+### 主なコンポーネントのテスト項目
 
-## スナップショット
+- コンポーネントが描画されているか。
+- コンポーネントの描画内容が正しいか（意図した通りの子コンポーネントが描画されているか等）。
+- Propsが正しく渡されているか。
+- 特定のイベントがトリガーした際に、コンポーネントは正常に動作しているか。
+
+### コンポーネントが描画されているか
+
+以下はコンポーネントの描画を確認するテストのサンプル。
+
+描画されるhtmlがスナップショット（スナップショットファイル）とマッチするのかを確認している。
+
+```js
+import { shallowMount } from "@vue/test-utils";
+import UserView from "@/views/UserView";
+
+describe("UserView", () => {
+   it("コンポーネントがレンダリングされる", () => {
+    const wrapper = shallowMount(UserView);
+
+    expect(wrapper.html()).toMatchSnapshot();
+  });
+});
+```
+
+スナップショットがない状態でテストを実行すると、何かしらのhtmlが出力されればテストは通る。
+
+#### スナップショット
+
+Jestを利用すれば、コンポーネントから描画されたhtmlをスナップショットとして保存できる。
+
+スナップショットはUIが予期せず変更されていないかを確かめるのに利用する。
+
+今回のようなコンポーネントのテストの場合、コンポーネントの内容が予期せず変更されていないかを確かめるために利用する。
+
+##### スナップショットの保存、利用、更新までの流れ
 
 `UserView.vue`が以下の状態で
 
