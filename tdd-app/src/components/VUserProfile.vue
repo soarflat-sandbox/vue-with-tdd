@@ -1,3 +1,9 @@
+<template>
+  <div>
+    UserProfile
+  </div>
+</template>
+
 <script>
 export default {
   name: "UserProfile",
@@ -10,9 +16,3 @@ export default {
   }
 };
 </script>
-
-<template>
-  <div>
-    UserProfile
-  </div>
-</template>
